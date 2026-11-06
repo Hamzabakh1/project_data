@@ -1,0 +1,10 @@
+__pycache__/
+.pytest_cache/
+*.egg-info/
+*.pyc
+.venv/
+.env
+data/*.csv
+artifacts/*.csv
+artifacts/*.json
+artifacts/*.joblib
