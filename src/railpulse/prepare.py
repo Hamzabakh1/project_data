@@ -31,8 +31,6 @@ def load_and_validate(path):
         raise ValueError("Delayed trains cannot exceed operated")
     if (df["operated"] > df["scheduled"]).any() or (df["cancelled"] > df["scheduled"]).any():
         raise ValueError("Train count exceeds scheduled")
-    if (df["operated"] + df["cancelled"] > df["scheduled"]).any():
-        raise ValueError("Operated + cancelled exceeds scheduled")
     df["route"] = df["origin"] + " → " + df["destination"]
     if df.duplicated(["route", "date"]).any():
         raise ValueError("Duplicate route/month grain")
